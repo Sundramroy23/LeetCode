@@ -6,13 +6,13 @@ class Solution {
 public:
     int maxDepth(string s) {
         int maxH = 0;
-        stack<char> st;
+        int cnt = 0;
         for(int i=0;i<s.length();i++){
             if(s[i]=='('){
-                st.push('(');
+                cnt++;
             }
-            else if(s[i]==')') st.pop();
-            maxH = max(maxH,st.size());
+            else if(s[i]==')') cnt--;
+            maxH = max(maxH,cnt);
         }
         return maxH;
     }
